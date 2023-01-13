@@ -1,14 +1,34 @@
 package bg.softuni.pathfinder.model.dto;
 
+import jakarta.validation.constraints.*;
+
 public class UserRegistrationDTO {
+
+    @NotBlank
+    @Size(min = 5, max = 20)
     private String username;
+    @NotNull
+    @Size(min = 5, max = 20)
     private String fullname;
+
+    @NotNull
+    @Email
     private String email;
+
+    @Min(0)
+    @Max(90)
     private int age;
+
+    @NotNull
+    @Size(min = 5, max = 20)
     private String password;
+
+    @NotNull
+    @Size(min = 5, max = 20)
     private String confirmPassword;
 
-    public UserRegistrationDTO() {}
+    public UserRegistrationDTO() {
+    }
 
     public UserRegistrationDTO(String username, String fullName, String email, int age, String password, String confirmPassword) {
         this.username = username;

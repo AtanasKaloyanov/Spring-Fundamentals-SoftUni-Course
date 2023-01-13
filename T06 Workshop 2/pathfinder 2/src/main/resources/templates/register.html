@@ -14,7 +14,7 @@
     <h1 class="border-bottom">Register</h1>
     <div class="d-flex justify-content-center ">
         <div class="row g-3">
-            <form
+            <form class="registration-form"
                     th:action="@{/register}"
                     th:method="post"
                     th:object="${userRegistrationDTO}"
@@ -27,6 +27,7 @@
                     <div class="col-auto">
                         <input name="username"
                                th:field="*{username}"
+                               th:errorclass="is-invalid"
                                required
                                minlength="5" maxlength="20"
                                type="text"
@@ -49,13 +50,14 @@
                     <div class="col-auto">
                         <input name="fullname"
                                th:field="*{fullname}"
-                               required minlength="5" maxlength="20"
+                               th:errorclass="is-invalid"
                                type="text"
                                id="inputFullName"
                                class="form-control"
                                aria-describedby="fullNameHelpInline">
                         <small id="fullNameError"
                                class="invalid-feedback  form-text bg-danger rounded">Full name length must be more than 3 characters</small>
+                        <small th:if="${#fields.hasErrors('fullname')}"> Some custom errors </small>
                     </div>
                 </div>
 
@@ -66,7 +68,6 @@
                     <div class="col-auto">
                         <input name="email"
                                th:field="*{email}"
-								required
                                type="email"
                                id="inputEmail"
                                class="form-control"
