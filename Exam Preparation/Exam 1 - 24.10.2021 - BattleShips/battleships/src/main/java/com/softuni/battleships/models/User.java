@@ -4,27 +4,27 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "users")
 public class User extends BaseEntity {
-
-    @Email
+    @Size(min = 3, max = 10)
     @Column(unique = true, nullable = false)
-    private String email;
+    private String username;
 
     @Size(min = 5, max = 20)
     @Column(name = "full_name", nullable = false)
     private String fullName;
 
+    @Email
+    @Column(unique = true, nullable = false)
+    private String email;
     @Size(min = 3)
     @Column(nullable = false)
     private String password;
 
-    @Size(min = 3, max = 10)
-    @Column(unique = true, nullable = false)
-    private String username;
 
     public User() {}
     public String getEmail() {

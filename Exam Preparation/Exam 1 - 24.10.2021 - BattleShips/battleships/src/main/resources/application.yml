@@ -3,7 +3,7 @@ spring:
     driverClassName: com.mysql.cj.jdbc.Driver
     url: "jdbc:mysql://localhost:3306/battleships?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true&serverTimezone=UTC"
     username: root
-    password: 
+    password:
   servlet:
     multipart:
       max-file-size: 1MB
@@ -33,6 +33,6 @@ spring:
   #api-key:
   #api-secret:
   #cloud-name:
-#server:
-#  port: 8083
+server:
+  port: 8081
 
