@@ -1,7 +1,7 @@
 package com.softuni.battleships.seeders;
 
 import com.softuni.battleships.models.Category;
-import com.softuni.battleships.models.enums.Name;
+import com.softuni.battleships.models.enums.ShipType;
 import com.softuni.battleships.repositories.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -24,7 +24,7 @@ public class CategorySeeder implements CommandLineRunner {
     public void run(String... args) throws Exception {
         if (categoryRepository.count() == 0) {
 
-            List<Category> categories = Arrays.stream(Name.values())
+            List<Category> categories = Arrays.stream(ShipType.values())
                     .map(categoryName -> new Category(categoryName))
                     .toList();
 

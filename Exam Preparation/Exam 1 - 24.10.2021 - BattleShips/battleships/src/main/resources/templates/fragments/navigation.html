@@ -1,24 +1,28 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top rounded">
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active" th:if="${@loggedUser.id == null}">
+            <th:block th:if="${@loggedUser.id == 0}">
+            <li class="nav-item active">
                 <a class="nav-link" href="/">Home</a>
             </li>
-            <li class="nav-item" th:if="${@loggedUser.id == null}">
+            <li class="nav-item">
                 <a class="nav-link" href="/login">Login</a>
             </li>
-            <li class="nav-item" th:if="${@loggedUser.id == null}">
+            <li class="nav-item">
                 <a class="nav-link" href="/register">Register</a>
             </li>
-            <li class="nav-item active" th:if="${@loggedUser.id}">
+            </th:block>
+            <th:block th:if="${@loggedUser.id > 0}">
+            <li class="nav-item active">
                 <a class="nav-link" href="/home">Home</a>
             </li>
-            <li class="nav-item" th:if="${@loggedUser.id}">
-                <a class="nav-link" href="/ship">Add Ship</a>
+            <li class="nav-item">
+                <a class="nav-link" href="/ships/add">Add Ship</a>
             </li>
-            <li class="nav-item" th:if="${@loggedUser.id}">
+            <li class="nav-item">
                 <a class="nav-link" href="/logout">Logout</a>
             </li>
+            </th:block>
         </ul>
         <img width="50px" src="/images/ufo.png" alt="Ufo image">
     </div>

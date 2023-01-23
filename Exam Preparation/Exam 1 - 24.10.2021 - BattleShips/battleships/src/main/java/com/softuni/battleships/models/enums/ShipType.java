@@ -1,5 +1,5 @@
 package com.softuni.battleships.models.enums;
 
-public enum Name {
+public enum ShipType {
     BATTLE, CARGO, PATROL
 }
